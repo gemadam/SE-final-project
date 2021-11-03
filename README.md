@@ -47,6 +47,29 @@ This section contains functional and non-functional requirements of the project.
 > **Subfolder** - Folder located inside Input/Destination directory hierarchy. Can contain other subfolders.
 
 
+## Use case model
+
+### Actors
+
+> **User** - The regular user of the program. User wants to perform the operation of folder flattening. User is expected to have basic knowledge about program and file system. It is assumed that user has proper access levels to folders on which program will execute.
+
+### Use case
+
+The program is expected to move all files from one folder hierarchy to another. Files in destination directory should have names that will allow to identify them. After operation of flattening the log file can be found inside destination directory. Log file contains all of the informations about the files that were copied to destination directory. Example of the line from the log file looks like this:
+
+```
+source_dir/subdir/file1.txt -> destination_dir/tokenized_name_of_file1.txt
+```
+
+In case of conflict program displays the proper message and allows to ammend the problem. Such situation produces record in log file:
+
+```
+[!] Conflict source_dir/dir2/file1.txt -> destination_dir/name_of_file1.txt
+[+] source_dir/subdir2/file1.txt -> destination_dir/name_of_file1_copy.txt
+```
+
+![Use case diagram](Documentation/UseCaseDiagram.png "Use case diagram")
+
 ## Technology stack
 
 *To be discussed...*

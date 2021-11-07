@@ -24,12 +24,19 @@ This section contains functional and non-functional requirements of the project.
 
 ### Non-functional requierements
 
-- Application should display the information about conflicts between names of the files.
+- Application should display the information about conflicts between names of the files. 
 
 - User input should be tokenized.
 
 - Conflict resolution dialog should allow user to specify a new name of the file, skip or replace it.
 
+- The user must have permissions to the directory and its files in order to perform the flattening process. If the user does not have such rights, the program should display an appropriate message and ask the user if he wants to continue the process only for folders and files to which he has rights in the source path.
+
+- The files are copied to the new location and are removed from the old location along with any nested folders.
+
+- The processing of each request should be done immediately.
+
+- In order to undo the flattening process the user presses the reverse button, whereupon the program asks from the log file of which operation it should read the data of the flattening operation performed and perform the action of restoring the nested path.
 
 
 ## Project's dictionary
@@ -55,6 +62,8 @@ This section contains functional and non-functional requirements of the project.
 > **Subfolder** - Folder located inside Input/Destination directory hierarchy. Can contain other subfolders.
 
 > **User** - Person using the system for his or her own knowledge purposes.
+
+> **Log file** - log file is a file that records events that occur after user's request for flattening process.
 
 
 ## Use case model

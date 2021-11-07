@@ -44,7 +44,17 @@ This section contains functional and non-functional requirements of the project.
 
 > **Input directory** - The directory that user specified to be flattend.
 
+> **Flattening process** - Flattening a directory means moving all the files from their various folder and/or subfolders into one parent folder in destination directory. 
+
+> **Nested Directory** - A folder stored within another folder. A nested folder is also named subfolder.
+
+> **Notification** - Informing the user about conflict during program execution.
+
+> **Search** - A process of searching the input directory to find all files to be flattened into one folder and moved to the destination directory.
+
 > **Subfolder** - Folder located inside Input/Destination directory hierarchy. Can contain other subfolders.
+
+> **User** - Person using the system for his or her own knowledge purposes.
 
 
 ## Use case model

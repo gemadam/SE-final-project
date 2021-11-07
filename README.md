@@ -70,6 +70,10 @@ In case of conflict program displays the proper message and allows to ammend the
 
 ![Use case diagram](Documentation/UseCaseDiagram.png "Use case diagram")
 
+- <extends> has to be added
+- Use case model has to be consitent with Project's dictionary
+- The direction of <include> has to be added
+  
 ## Technology stack
 
 *To be discussed...*

@@ -25,6 +25,8 @@ This section contains functional and non-functional requirements of the project.
 
 - Minimal requirement is a Windows application. Windows and Linux compatibility is preferred.
 
+- The program will consider all folders and files in the path and all file extensions.
+
 - Program should allow user to resolve conflicts that may occur during execution of the algorithm. Conflict should stop algorithm until user will choose conflict resolution option in modal dialog.
 
 - Program should log which file was mapped onto which name. Log file should also contain information about conflicts and the way they were resolved. Program should also log other accidents such as lacking privileges or the files that could not be opened (i.e. when file was opened in other application). Log file should have an extension '*.flattening.log'.
@@ -42,6 +44,8 @@ This section contains functional and non-functional requirements of the project.
 
 - Conflict resolution dialog should allow user to specify a new name of the file, skip or replace it.
 
+- The programme will work for every user of the operating system.
+
 - The user must have permissions to the directory and its files in order to perform the flattening process. If the user does not have such rights, the program should display an appropriate message and ask the user if he wants to continue the process only for folders and files to which he has rights in the source path.
 
 - The files are copied to the new location and are removed from the old location along with any nested folders.
@@ -53,7 +57,7 @@ This section contains functional and non-functional requirements of the project.
 
 ## Project's dictionary
 
-> **Algorithm** - Flattening algorithm implemented in the program.
+> **Algorithm** - a set of instructions that makes a computer do the flattening process.
 
 > **Conflict** - In terms of flattening, the situation when two files are assigned with the same names.
 
@@ -72,6 +76,11 @@ This section contains functional and non-functional requirements of the project.
 > **Notification** - Informing the user about conflict during program execution.
 
 > **Search** - A process of searching the input directory to find all files to be flattened into one folder and moved to the destination directory.
+
+> **Operating system** - The software that manages computer resources and creates the environment for running the program.
+
+> **Program** - Flattening algorithm written in a programming language.
+
 
 > **Subfolder** - Folder located inside Input/Destination directory hierarchy. Can contain other subfolders.
 

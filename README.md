@@ -1,5 +1,13 @@
 # Software engineering final project
 
+## Overview
+
+- Project name: QuickFlattener
+- Authors: Adam Gembala, Robert Lotawiec
+- Degree course: Informatics, sem V
+- Academic year: 2021/2022
+
+
 ## Description
 
 The goal of the project is to create an application with a grapphical user interface for flattening nested directories with files. The user from the GUI can choose the source directory and the destination folder, where all the files from the nested source directory will be copied, the flattening operation has to be reversible. After each operation, a log file will be created in which the history of the performed operations on files will be stored. In case of a conflict during copying files to the target folder (i.e. copied files have the same name), the user will be informed about it and will have to decide on his own about the occurred conflict (giving a new name to one of the files or skipping the copying of the file causing the conflict). The minimum requirement is that the application works with the Windows platform and that it works on desktop devices.
@@ -78,6 +86,10 @@ This section contains functional and non-functional requirements of the project.
 
 > **User** - The regular user of the program. User wants to perform the operation of folder flattening. User is expected to have basic knowledge about program and file system. It is assumed that user has proper access levels to folders on which program will execute.
 
+> **Logger** - Service that performs write opertion to '*.flattening.log' file. It logs all events that may occur during program execution. 
+
+> **File system** - File system on which program operates.
+
 ### Use case
 
 The program is expected to move all files from one folder hierarchy to another. Files in destination directory should have names that will allow to identify them. After operation of flattening the log file can be found inside destination directory. Log file contains all of the informations about the files that were copied to destination directory. Example of the line from the log file looks like this:
@@ -93,11 +105,7 @@ In case of conflict program displays the proper message and allows to ammend the
 [+] source_dir/subdir2/file1.txt -> destination_dir/name_of_file1_copy.txt
 ```
 
-![Use case diagram](Documentation/UseCaseDiagram.png "Use case diagram")
-
-- "extends" has to be added
-- Use case model has to be consitent with Project's dictionary
-- The direction of "include" has to be added
+![Use case diagram](Documentation/UseCaseDiagram.jpg "Use case diagram")
   
 ## Technology stack
 

@@ -11,15 +11,19 @@ This section contains functional and non-functional requirements of the project.
 
 ### Functional requierements
 
-- Application has to have a GUI.
+- User should be able to interact with the program through a graphical user interface.
 
-- Minimal requirement is a Windows application. Widnows and Linux compatibility is preferred.
+- User privileges should be checked at runtime and program should not stop its execution when user lacks the read or write privilage on some file or nested directory. In such case program should omit it and log such accident in log file.
 
-- Program should allow user to resolve problems that may occur during execution.
+- Minimal requirement is a Windows application. Windows and Linux compatibility is preferred.
 
-- Program should log it's operations.
+- Program should allow user to resolve conflicts that may occur during execution of the algorithm. Conflict should stop algorithm until user will choose conflict resolution option in modal dialog.
 
-- Operation of flattening should be reversible.
+- Program should log which file was mapped onto which name. Log file should also contain inforamtions about conflicts and the way they were resolved. Program should also log other accidents such as lacking privileges or the files that could not be opened (i.e. when file was opened in other application). Log file should have an extension '*.flattening.log'.
+
+- Operation of flattening is reversible through the GUI after providing the destination directory. Program should scan the directory if it's only one level deep and should itself find the log file by extension. In case of multiple log files user should be allowed to pick one and in case of nested directories program should prompt the warning but should allow to ignore them. 
+
+- During execution of reverse operation if program is not able to find a file that was specified in log, it should display the inforamtion about missing file, but should not stop the opertion.
 
 
 ### Non-functional requierements
@@ -45,13 +49,15 @@ This section contains functional and non-functional requirements of the project.
 
 > **Conflict** - In terms of flattening, the situation when two files are assigned with the same names.
 
-> **Conflict resolution** - Operation of resolving the conflict.
+> **Conflict resolution** - Operation of resolving the conflict in file naming. Possible ways to resolve a conflict are skipping a file or rename it.
 
 > **Destination directory** - The directory to which files from the flattend directory will be saved.
 
 > **Input directory** - The directory that user specified to be flattend.
 
 > **Flattening process** - Flattening a directory means moving all the files from their various folder and/or subfolders into one parent folder in destination directory. 
+
+> **Log file** - log file is a file that records events that occur after user's request for flattening process.
 
 > **Nested Directory** - A folder stored within another folder. A nested folder is also named subfolder.
 
@@ -63,7 +69,7 @@ This section contains functional and non-functional requirements of the project.
 
 > **User** - Person using the system for his or her own knowledge purposes.
 
-> **Log file** - log file is a file that records events that occur after user's request for flattening process.
+> **Reverse operation** - operation of reverting the algorithm execution.
 
 
 ## Use case model

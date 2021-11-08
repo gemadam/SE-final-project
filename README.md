@@ -88,6 +88,8 @@ This section contains functional and non-functional requirements of the project.
 
 > **Logger** - Service that performs write opertion to '*.flattening.log' file. It logs all events that may occur during program execution. 
 
+> **File mapper** - Service that performs file mapping,detects conflicts and applies tokenization of user input.
+
 > **File system** - File system on which program operates.
 
 ### Use case

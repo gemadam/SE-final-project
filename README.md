@@ -95,10 +95,6 @@ This section contains functional and non-functional requirements of the project.
 
 > **User** - The regular user of the program. User wants to perform the operation of folder flattening. User is expected to have basic knowledge about program and file system. It is assumed that user has proper access levels to folders on which program will execute.
 
-> **Logger** - Service that performs write operation to '*.flattening.log' file. It logs all events that may occur during program execution. 
-
-> **File mapper** - Service that performs file mapping, detects conflicts and applies tokenization of user input.
-
 > **File system** - File system on which program operates.
 
 ### Use case

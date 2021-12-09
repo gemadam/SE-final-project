@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="QuickFlattener.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:QuickFlattener"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBox x:Name="txtInputDirectory" Margin="15,15,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" HorizontalAlignment="Left" Width="976"/>
+        <TextBox x:Name="txtOutputDirectory" Margin="15,59,413,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+        <ListBox x:Name="lstFiles" Margin="15,154,413,191"/>
+        <Button Content="Scan" Margin="996,15,0,0" VerticalAlignment="Top" Width="91" Click="Button_Click"/>
+        <ListBox x:Name="lstLog" Margin="1092,15,10,191" FontSize="12" Grid.RowSpan="1" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+        <TextBlock HorizontalAlignment="Left" Margin="15,130,0,0" TextWrapping="Wrap" Text="Files detected:" VerticalAlignment="Top" Width="93"/>
+        <TextBlock x:Name="lbFilesCount" HorizontalAlignment="Left" Margin="108,130,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="93"/>
+        <TextBox x:Name="txtOutputPattern" Margin="15,98,413,0" TextWrapping="Wrap" Text="&lt;&lt;#ShortFilePathToken#&gt;&gt;&lt;&lt;#FileNameToken#&gt;&gt;.&lt;&lt;#FileExtensionToken#&gt;&gt;" VerticalAlignment="Top"/>
+
+    </Grid>
+</Page>

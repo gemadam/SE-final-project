@@ -1,2 +1,0 @@
-D:\Projects\SE-final-project\QuickFlattener\QuickFlattener.Tokenization\QuickFlattener.Tokenization.csproj;x86
-D:\Projects\SE-final-project\QuickFlattener\QuickFlattener\QuickFlattener.csproj;x86

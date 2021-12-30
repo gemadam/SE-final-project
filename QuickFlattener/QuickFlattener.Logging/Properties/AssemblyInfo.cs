@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("QuickFlattener")]
+[assembly: AssemblyTitle("QuickFlattener.Logging")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("QuickFlattener")]
+[assembly: AssemblyProduct("QuickFlattener.Logging")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("92782407-9da7-4db0-ae53-f53e8e6878cd")]
+[assembly: Guid("2e6d42ac-d00b-4278-90b7-13b5bb72e9a5")]
 
 // Version information for an assembly consists of the following four values:
 //

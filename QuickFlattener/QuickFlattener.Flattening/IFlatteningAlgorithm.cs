@@ -1,5 +1,7 @@
-﻿using System;
+﻿using QuickFlattener.Logging;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,8 +10,10 @@ namespace QuickFlattener.Flattening
 {
     public interface IFlatteningAlgorithm
     {
-        void Execute();
+        ICollection<ILogger> Loggers { get; set; }
 
-        void Reverse();
+        ICollection<string> Execute(ICollection<FileInfo> files, string outputPattern);
+
+        void Reverse(FileInfo logFile);
     }
 }

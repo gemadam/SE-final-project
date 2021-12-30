@@ -18,19 +18,20 @@ namespace QuickFlattener.Tokenization
             tokens.Add(new FileNameToken());
             tokens.Add(new ShortFilePathToken());
             tokens.Add(new FileExtensionToken());
+            tokens.Add(new ConcatPathToken());
         }
 
         public string Tokenize(string input, FileInfo fileInfo)
         {
             var output = input;
 
-            foreach(var token in tokens)
+            foreach (var token in tokens)
             {
                 var tokenValue = token.Value();
 
                 output = output.Replace(tokenValue, token.Tokenize(fileInfo));
             }
-                    
+
 
             return output;
         }

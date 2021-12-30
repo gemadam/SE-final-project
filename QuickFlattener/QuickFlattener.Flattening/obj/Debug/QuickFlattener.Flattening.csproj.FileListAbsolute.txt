@@ -1,0 +1,11 @@
+D:\Projects\QuickFlattener\QuickFlattener\QuickFlattener.Flattening\bin\Debug\QuickFlattener.Flattening.dll
+D:\Projects\QuickFlattener\QuickFlattener\QuickFlattener.Flattening\bin\Debug\QuickFlattener.Flattening.pdb
+D:\Projects\QuickFlattener\QuickFlattener\QuickFlattener.Flattening\bin\Debug\QuickFlattener.Logging.dll
+D:\Projects\QuickFlattener\QuickFlattener\QuickFlattener.Flattening\bin\Debug\QuickFlattener.Tokenization.dll
+D:\Projects\QuickFlattener\QuickFlattener\QuickFlattener.Flattening\bin\Debug\QuickFlattener.Logging.pdb
+D:\Projects\QuickFlattener\QuickFlattener\QuickFlattener.Flattening\bin\Debug\QuickFlattener.Tokenization.pdb
+D:\Projects\QuickFlattener\QuickFlattener\QuickFlattener.Flattening\obj\Debug\QuickFlattener.Flattening.csproj.AssemblyReference.cache
+D:\Projects\QuickFlattener\QuickFlattener\QuickFlattener.Flattening\obj\Debug\QuickFlattener.Flattening.csproj.CoreCompileInputs.cache
+D:\Projects\QuickFlattener\QuickFlattener\QuickFlattener.Flattening\obj\Debug\QuickFlattener.Flattening.csproj.CopyComplete
+D:\Projects\QuickFlattener\QuickFlattener\QuickFlattener.Flattening\obj\Debug\QuickFlattener.Flattening.dll
+D:\Projects\QuickFlattener\QuickFlattener\QuickFlattener.Flattening\obj\Debug\QuickFlattener.Flattening.pdb

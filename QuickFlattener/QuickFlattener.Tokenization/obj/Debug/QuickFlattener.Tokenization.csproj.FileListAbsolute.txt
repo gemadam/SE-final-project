@@ -1,0 +1,6 @@
+D:\Projects\QuickFlattener\QuickFlattener\QuickFlattener.Tokenization\bin\Debug\QuickFlattener.Tokenization.dll
+D:\Projects\QuickFlattener\QuickFlattener\QuickFlattener.Tokenization\bin\Debug\QuickFlattener.Tokenization.pdb
+D:\Projects\QuickFlattener\QuickFlattener\QuickFlattener.Tokenization\obj\Debug\QuickFlattener.Tokenization.csproj.AssemblyReference.cache
+D:\Projects\QuickFlattener\QuickFlattener\QuickFlattener.Tokenization\obj\Debug\QuickFlattener.Tokenization.csproj.CoreCompileInputs.cache
+D:\Projects\QuickFlattener\QuickFlattener\QuickFlattener.Tokenization\obj\Debug\QuickFlattener.Tokenization.dll
+D:\Projects\QuickFlattener\QuickFlattener\QuickFlattener.Tokenization\obj\Debug\QuickFlattener.Tokenization.pdb

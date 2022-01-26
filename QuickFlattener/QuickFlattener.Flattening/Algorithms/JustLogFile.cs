@@ -47,9 +47,13 @@ namespace QuickFlattener.Flattening.Algorithms
                     else
                         this.log($"[*] {file.Value.FullName} -> {p}");
                 }
-                catch (System.IO.FileNotFoundException ex)
+                catch (FileNotFoundException ex)
                 {
                     this.log($"[!] Error: Input file {file.Value.FullName} was not found!");
+                }
+                catch (Exception ex)
+                {
+                    this.log($"[!] Error: {ex.Message}");
                 }
             }
         }

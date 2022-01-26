@@ -70,24 +70,9 @@ namespace QuickFlattener
                 })
             };
 
-            try
-            {
-                 _algorithmContext.Algorithm.Execute(files, outputPath);
+            _algorithmContext.Algorithm.Execute(files, outputPath);
 
-                _uiLogger.Log($"Diretory was successfully flattend.");
-            }
-            catch (DirectoryNotFoundException ex)
-            {
-                _uiLogger.Log(ex.Message);
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-                _uiLogger.Log(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                _uiLogger.Log(ex.Message);
-            }
+            _uiLogger.Log($"Diretory was successfully flattend.");
         }
     }
 }

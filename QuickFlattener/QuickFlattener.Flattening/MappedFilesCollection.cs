@@ -162,6 +162,9 @@ namespace QuickFlattener.Flattening
 
             foreach (var file in mappedFiles)
             {
+                if (file.Value.Count < 1)       // Skipped files
+                    continue;
+
                 if (file.Value.Count() == 1)
                     result.Add(file.Key, file.Value[0]);
                 else if (!ignoreConflicts)

@@ -24,7 +24,10 @@ namespace QuickFlattener.Tokenization
             string[] a = fileInfo.FullName.Split(Path.DirectorySeparatorChar);
             foreach (var e in a)
             {
-                var value = e.Substring(0, 2) + "_";
+                var value = e;
+                
+                if(value.Length > 1)
+                    value = e.Substring(0, 2) + "_";
 
                 foreach (var il in Path.GetInvalidFileNameChars())
                     value = value.Replace(il.ToString(), string.Empty);

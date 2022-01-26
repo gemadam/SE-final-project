@@ -16,7 +16,10 @@ namespace QuickFlattener.Tokenization
 
         public string Tokenize(FileInfo fileInfo)
         {
-            return Path.GetExtension(fileInfo.Name).Remove(0, 1);
+            if (fileInfo.Extension.Length < 2)
+                return "";
+
+            return fileInfo.Extension.Remove(0, 1);
         }
     }
 }

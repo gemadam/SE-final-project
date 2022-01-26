@@ -9,3 +9,14 @@ D:\Projects\QuickFlattener\QuickFlattener\QuickFlattener.Flattening\obj\Debug\Qu
 D:\Projects\QuickFlattener\QuickFlattener\QuickFlattener.Flattening\obj\Debug\QuickFlattener.Flattening.csproj.CopyComplete
 D:\Projects\QuickFlattener\QuickFlattener\QuickFlattener.Flattening\obj\Debug\QuickFlattener.Flattening.dll
 D:\Projects\QuickFlattener\QuickFlattener\QuickFlattener.Flattening\obj\Debug\QuickFlattener.Flattening.pdb
+D:\Projects\SE-final-project\QuickFlattener\QuickFlattener.Flattening\bin\Debug\QuickFlattener.Flattening.dll
+D:\Projects\SE-final-project\QuickFlattener\QuickFlattener.Flattening\bin\Debug\QuickFlattener.Flattening.pdb
+D:\Projects\SE-final-project\QuickFlattener\QuickFlattener.Flattening\bin\Debug\QuickFlattener.Logging.dll
+D:\Projects\SE-final-project\QuickFlattener\QuickFlattener.Flattening\bin\Debug\QuickFlattener.Tokenization.dll
+D:\Projects\SE-final-project\QuickFlattener\QuickFlattener.Flattening\bin\Debug\QuickFlattener.Logging.pdb
+D:\Projects\SE-final-project\QuickFlattener\QuickFlattener.Flattening\bin\Debug\QuickFlattener.Tokenization.pdb
+D:\Projects\SE-final-project\QuickFlattener\QuickFlattener.Flattening\obj\Debug\QuickFlattener.Flattening.csproj.AssemblyReference.cache
+D:\Projects\SE-final-project\QuickFlattener\QuickFlattener.Flattening\obj\Debug\QuickFlattener.Flattening.csproj.CoreCompileInputs.cache
+D:\Projects\SE-final-project\QuickFlattener\QuickFlattener.Flattening\obj\Debug\QuickFlattener.Flattening.csproj.CopyComplete
+D:\Projects\SE-final-project\QuickFlattener\QuickFlattener.Flattening\obj\Debug\QuickFlattener.Flattening.dll
+D:\Projects\SE-final-project\QuickFlattener\QuickFlattener.Flattening\obj\Debug\QuickFlattener.Flattening.pdb

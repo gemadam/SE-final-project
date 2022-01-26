@@ -14,6 +14,7 @@ namespace QuickFlattener
         public IDictionary<string, IFlatteningAlgorithm> AvailableAlgorithms { get; private set; }
 
         private FlatteningAlgorithmContext _algorithmContext;
+        private FileMapper _fileMapper;
 
         public UIController()
         {
@@ -21,6 +22,8 @@ namespace QuickFlattener
             AvailableAlgorithms.Add("QuickFlattenerUltra v1.0", new FlatteningAlgorithm());
 
             _algorithmContext = new FlatteningAlgorithmContext(new FlatteningAlgorithm());
+
+            _fileMapper = new FileMapper();
         }
 
         public void ChangeAlgorithm(string sAlgorithmName)
@@ -28,7 +31,19 @@ namespace QuickFlattener
             _algorithmContext.SetAlgorithm(AvailableAlgorithms[sAlgorithmName]);
         }
 
-        public ICollection<string> ExecuteFlattening(string inputPath, string outputPath, string outputPattern, out int filesCount)
+        public ICollection<FileInfo> Scan(string inputPath)
+        {
+            var scanner = new FileScanner();
+
+            return scanner.GetFiles(inputPath);
+        }
+
+        public IDictionary<string, List<FileInfo>> MapFiles(ICollection<FileInfo> files, string outputPattern)
+        {
+            return _fileMapper.MapFiles(files, outputPattern);
+        }
+
+        public ICollection<string> ExecuteFlattening(IDictionary<string, FileInfo> files, string outputPath)
         {
             _algorithmContext.Algorithm.Loggers = new List<ILogger>()
             {
@@ -39,13 +54,7 @@ namespace QuickFlattener
                 })
             };
 
-            var scanner = new FileScanner();
-
-            var files = scanner.GetFiles(inputPath);
-
-            filesCount = files.Count;
-
-            return _algorithmContext.Algorithm.Execute(files, outputPattern);
+            return _algorithmContext.Algorithm.Execute(files, outputPath);
         }
     }
 }

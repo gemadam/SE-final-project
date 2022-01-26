@@ -34,3 +34,4 @@ D:\Projects\SE-final-project\QuickFlattener\QuickFlattener\obj\Debug\QuickFlatte
 D:\Projects\SE-final-project\QuickFlattener\QuickFlattener\obj\Debug\QuickFlattener.csproj.CopyComplete
 D:\Projects\SE-final-project\QuickFlattener\QuickFlattener\obj\Debug\QuickFlattener.exe
 D:\Projects\SE-final-project\QuickFlattener\QuickFlattener\obj\Debug\QuickFlattener.pdb
+D:\Projects\SE-final-project\QuickFlattener\QuickFlattener\obj\Debug\QuickFlattener.Dialogs.ConflictResolutionWindow.resources

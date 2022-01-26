@@ -12,7 +12,7 @@ namespace QuickFlattener.Flattening
     {
         ICollection<ILogger> Loggers { get; set; }
 
-        ICollection<string> Execute(ICollection<FileInfo> files, string outputPattern);
+        ICollection<string> Execute(IDictionary<string, FileInfo> files, string outputPath);
 
         void Reverse(FileInfo logFile);
     }

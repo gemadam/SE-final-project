@@ -13,6 +13,7 @@ namespace QuickFlattener
         {
             var files = new List<FileInfo>();
 
+            //@bugException
             foreach (var dir in Directory.GetDirectories(path))
             {
                 var ent = new DirectoryInfo(dir);

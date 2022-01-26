@@ -1,5 +1,4 @@
 ﻿using QuickFlattener.Logging;
-using QuickFlattener.Tokenization;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,15 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuickFlattener.Flattening
+namespace QuickFlattener.Flattening.Algorithms
 {
-    public class FlatteningAlgorithm : IFlatteningAlgorithm
+    public class JustLogFile : IFlatteningAlgorithm
     {
 
         public ICollection<ILogger> Loggers { get; set; }
 
 
-        public FlatteningAlgorithm()
+        public JustLogFile()
         {
             Loggers = new List<ILogger>();
         }
@@ -26,17 +25,15 @@ namespace QuickFlattener.Flattening
                 logger.Log(msg);
         }
 
-        public ICollection<string> Execute(IDictionary<string, FileInfo> files, string outputPath)
+        public void Execute(IDictionary<string, FileInfo> files, string outputPath)
         {
-            var lstLog = new List<string>();
-
             // Ensure output directory exists
             if (!Directory.Exists(outputPath))
             {
                 Directory.CreateDirectory(outputPath);
                 this.log($"[!] Warning: Directory {Path.GetFullPath(outputPath)} does not exist. Directory created.");
             }
-            else if(Directory.GetFiles(outputPath).Count() > 0)
+            else if (Directory.GetFiles(outputPath).Count() > 0)
                 this.log($"[!] Warning: Directory {Path.GetFullPath(outputPath)} is not empty.");
 
             foreach (var file in files)
@@ -48,19 +45,13 @@ namespace QuickFlattener.Flattening
                     if (File.Exists(p))
                         this.log($"[!] Error: File {p} already exists! Omitting this file...");
                     else
-                    {
-                        File.Copy(file.Value.FullName, p);
                         this.log($"[*] {file.Value.FullName} -> {p}");
-                    }
                 }
-                catch(System.IO.FileNotFoundException ex)
+                catch (System.IO.FileNotFoundException ex)
                 {
                     this.log($"[!] Error: Input file {file.Value.FullName} was not found!");
                 }
             }
-
-
-            return lstLog;
         }
 
         public void Reverse(FileInfo logFile)

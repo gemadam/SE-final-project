@@ -6,34 +6,49 @@ using System.IO;
 using System.Threading.Tasks;
 using QuickFlattener.Flattening;
 using QuickFlattener.Logging;
+using QuickFlattener.Flattening.Algorithms;
 
 namespace QuickFlattener
 {
+    /// <summary>
+    /// GUI controller.
+    /// </summary>
     public class UIController
     {
+        private readonly ILogger _uiLogger;
+
+        /// <summary>
+        /// Flattening algorithms supported by the program
+        /// </summary>
         public IDictionary<string, IFlatteningAlgorithm> AvailableAlgorithms { get; private set; }
 
         private FlatteningAlgorithmContext _algorithmContext;
         private FileMapper _fileMapper;
 
-        public UIController()
+        public UIController(ILogger uiLogger)
         {
-            AvailableAlgorithms = new Dictionary<string, IFlatteningAlgorithm>();
-            AvailableAlgorithms.Add("QuickFlattenerUltra v1.0", new FlatteningAlgorithm());
+            _uiLogger = uiLogger;
 
-            _algorithmContext = new FlatteningAlgorithmContext(new FlatteningAlgorithm());
+            AvailableAlgorithms = new Dictionary<string, IFlatteningAlgorithm>();
+            AvailableAlgorithms.Add("QuickFlattenerUltra v1.0", new QuickFlattenerUltra());
+            AvailableAlgorithms.Add("JustLogFile v1.0", new JustLogFile());
+
+            _algorithmContext = new FlatteningAlgorithmContext(new QuickFlattenerUltra());
 
             _fileMapper = new FileMapper();
         }
 
         public void ChangeAlgorithm(string sAlgorithmName)
         {
+            if (!AvailableAlgorithms.ContainsKey(sAlgorithmName))
+                return;
+
             _algorithmContext.SetAlgorithm(AvailableAlgorithms[sAlgorithmName]);
         }
 
         public ICollection<FileInfo> Scan(string inputPath)
         {
-            var scanner = new FileScanner();
+            var scanner = new FileScanner(_uiLogger);
 
             return scanner.GetFiles(inputPath);
         }
@@ -43,10 +58,11 @@ namespace QuickFlattener
             return _fileMapper.MapFiles(files, outputPattern);
         }
 
-        public ICollection<string> ExecuteFlattening(IDictionary<string, FileInfo> files, string outputPath)
+        public void ExecuteFlattening(IDictionary<string, FileInfo> files, string outputPath)
         {
             _algorithmContext.Algorithm.Loggers = new List<ILogger>()
             {
+                _uiLogger,
                 new LogFileLogger(Path.Combine(outputPath, "OUTPUT.LOG")),
                 new CustomLogger((string msg) => {
                     Console.WriteLine(msg);
@@ -54,7 +70,24 @@ namespace QuickFlattener
                 })
             };
 
-            return _algorithmContext.Algorithm.Execute(files, outputPath);
+            try
+            {
+                 _algorithmContext.Algorithm.Execute(files, outputPath);
+
+                _uiLogger.Log($"Diretory was successfully flattend.");
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                _uiLogger.Log(ex.Message);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                _uiLogger.Log(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                _uiLogger.Log(ex.Message);
+            }
         }
     }
 }

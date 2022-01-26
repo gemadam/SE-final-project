@@ -7,16 +7,31 @@ using System.Threading.Tasks;
 
 namespace QuickFlattener.Flattening
 {
+    /// <summary>
+    /// Main data structure of the program. Allows to store file mappings and resolve conflicts.
+    /// </summary>
     public class MappedFilesCollection
     {
-        public IDictionary<string, List<FileInfo>> mappedFiles { set; get; }
+        /// <summary>
+        /// Underlaying structure that stores all of the data.
+        /// </summary>
+        public IDictionary<string, List<FileInfo>> mappedFiles { private get; set; }
 
 
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public MappedFilesCollection()
         {
             mappedFiles = new Dictionary<string, List<FileInfo>>();
         }
 
+
+        /// <summary>
+        /// Function adds new file mapping.
+        /// </summary>
+        /// <param name="fileOutput">File mapping</param>
+        /// <param name="file">File input info</param>
         public void Add(string fileOutput, FileInfo file)
         {
             if (mappedFiles.ContainsKey(fileOutput))
@@ -25,6 +40,11 @@ namespace QuickFlattener.Flattening
                 mappedFiles[fileOutput] = new List<FileInfo> { file };
         }
 
+        /// <summary>
+        /// Function adds new files mapping. <strong>Creates conflict, if files count is > 1!</strong>
+        /// </summary>
+        /// <param name="fileOutput">Files mapping</param>
+        /// <param name="files">Collection of input files info</param>
         public void Add(string fileOutput, ICollection<FileInfo> files)
         {
             if (mappedFiles.ContainsKey(fileOutput))
@@ -34,6 +54,12 @@ namespace QuickFlattener.Flattening
         }
 
 
+        /// <summary>
+        /// Function moves input file info from one mapping to another. Can be used to resolve conflicts.
+        /// </summary>
+        /// <param name="fileOutput">Current file mapping</param>
+        /// <param name="newFileOutput">New file mapping</param>
+        /// <param name="file">Input file info</param>
         public void Move(string fileOutput, string newFileOutput, FileInfo file)
         {
             if (mappedFiles.ContainsKey(fileOutput) && !fileOutput.Equals(newFileOutput))
@@ -46,12 +72,23 @@ namespace QuickFlattener.Flattening
         }
 
 
+        /// <summary>
+        /// Function removes file info from a specific mapping.
+        /// </summary>
+        /// <param name="fileOutput">File mapping</param>
+        /// <param name="file">Input file info</param>
         public void Remove(string fileOutput, FileInfo file)
         {
             if (mappedFiles.ContainsKey(fileOutput))
                 this.Remove(fileOutput, mappedFiles[fileOutput].Where(x => file.Equals(x)).ToList());
         }
 
+
+        /// <summary>
+        /// Function removes a collection of files info from a specific mapping.
+        /// </summary>
+        /// <param name="fileOutput">File mapping</param>
+        /// <param name="files">Input files info</param>
         public void Remove(string fileOutput, ICollection<FileInfo> files)
         {
             if (mappedFiles.ContainsKey(fileOutput))
@@ -59,17 +96,46 @@ namespace QuickFlattener.Flattening
         }
 
 
+        /// <summary>
+        /// Function returns the first conflict.
+        /// </summary>
+        /// <returns>Conflict info</returns>
         public KeyValuePair<string, List<FileInfo>> FirstConflict()
         {
             return mappedFiles.Where(x => x.Value.Count > 1).First();
         }
 
 
+        /// <summary>
+        /// Function returns the number of conflicts.
+        /// </summary>
+        /// <returns>Number of conflicts.</returns>
         public int ConflictsCount()
         {
             return mappedFiles.Where(x => x.Value.Count > 1).Count();
         }
 
+
+        /// <summary>
+        /// Function returns the number of conflicted files.
+        /// </summary>
+        /// <returns>Number of conflicted files.</returns>
+        public int ConflictedFilesCount()
+        {
+            return mappedFiles.Where(x => x.Value.Count > 1)
+                .Select(x => x.Value.Count)
+                .Sum();
+        }
+
+
+        /// <summary>
+        /// Function resolves a conflict.
+        /// </summary>
+        /// <param name="conflictedOutput">Common mapping of files A and B taht caused a caonflict.</param>
+        /// <param name="fileA">Input file info A</param>
+        /// <param name="fileB">Input file info B</param>
+        /// <param name="outA">New mapping of file A, null if file A should be removed from mapping</param>
+        /// <param name="outB">New mapping of file B, null if file B should be removed from mapping</param>
         public void ResolveConflict(string conflictedOutput, FileInfo fileA, FileInfo fileB, string outA, string outB)
         {
             if (outA == null)                           // Skip file A
@@ -106,6 +172,11 @@ namespace QuickFlattener.Flattening
         }
 
 
+        /// <summary>
+        /// Function converts entries in the structure to collection of strings in format:
+        /// <code>input_file -> file_mapping</code>
+        /// </summary>
+        /// <returns>Collection of string representations of entries.</returns>
         public IList<string> AsStringCollection()
         {
             var result = new List<string>();

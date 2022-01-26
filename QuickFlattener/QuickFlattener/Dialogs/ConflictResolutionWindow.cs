@@ -22,6 +22,10 @@ namespace QuickFlattener.Dialogs
         public ConflictResolutionWindow()
         {
             InitializeComponent();
+
+
+            /*  Window start position  */
+            this.StartPosition = FormStartPosition.CenterParent;
         }
 
         private void ConflictResolutionWindow_Shown(object sender, EventArgs e)
@@ -31,11 +35,16 @@ namespace QuickFlattener.Dialogs
 
             txtFileA.Text = this.FileA;
             txtFileB.Text = this.FileB;
+
+            btnResolve.Enabled = !txtOutFileA.Text.Equals(txtOutFileB.Text);
+            btnTakeA.Enabled = !string.IsNullOrWhiteSpace(txtOutFileA.Text);
+            btnTakeB.Enabled = !string.IsNullOrWhiteSpace(txtOutFileB.Text);
         }
 
         private void txtFileA_TextChanged(object sender, EventArgs e)
         {
             btnResolve.Enabled = !txtOutFileA.Text.Equals(txtOutFileB.Text);
+            btnTakeA.Enabled = !string.IsNullOrWhiteSpace(txtOutFileA.Text);
 
             this.OutFileA = txtOutFileA.Text;
         }
@@ -43,6 +52,7 @@ namespace QuickFlattener.Dialogs
         private void txtFileB_TextChanged(object sender, EventArgs e)
         {
             btnResolve.Enabled = !txtOutFileB.Text.Equals(txtOutFileA.Text);
+            btnTakeB.Enabled = !string.IsNullOrWhiteSpace(txtOutFileB.Text);
 
             this.OutFileB = txtOutFileB.Text;
         }

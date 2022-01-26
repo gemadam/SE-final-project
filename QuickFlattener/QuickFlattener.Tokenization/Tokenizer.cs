@@ -11,6 +11,9 @@ namespace QuickFlattener.Tokenization
     {
         ICollection<IToken> tokens;
 
+        /// <summary>
+        /// Default constructor. Initializes all tokens.
+        /// </summary>
         public Tokenizer()
         {
             tokens = new List<IToken>();
@@ -21,6 +24,12 @@ namespace QuickFlattener.Tokenization
             tokens.Add(new ConcatPathToken());
         }
 
+        /// <summary>
+        /// Function populates input string with data.
+        /// </summary>
+        /// <param name="input">Input to be tokenized.</param>
+        /// <param name="fileInfo">Data to be used in tokenization.</param>
+        /// <returns>Tokenized string.</returns>
         public string Tokenize(string input, FileInfo fileInfo)
         {
             var output = input;

@@ -2,17 +2,27 @@
 using QuickFlattener.Tokenization;
 using System.IO;
 
-internal class ConcatPathToken : IToken
+namespace QuickFlattener.Tokenization
 {
-    public string Value()
+    /// <summary>
+    /// Token represents concatenated path to the file. F.e:
+    /// <code>E:\Movies\Komedie\Piraci z Karaibów Na krańcu świata.mp4</code>
+    /// Will result in:
+    /// <code>E:---Movies---Komedie---Piraci z Karaibów Na krańcu świata.mp4</code>
+    /// </summary>
+    internal class ConcatPathToken : IToken
     {
-        return "<<#ConcatPathToken#>>";
-    }
+        public string Value()
+        {
+            return "<<#ConcatPathToken#>>";
+        }
 
-    public string Tokenize(FileInfo fileInfo)
-    {
-        var o = fileInfo.FullName.Replace(Path.DirectorySeparatorChar.ToString(), "---");
+        public string Tokenize(FileInfo fileInfo)
+        {
+            var o = fileInfo.FullName.Replace(Path.DirectorySeparatorChar.ToString(), "---");
 
-        return o;
+            return o;
+        }
     }
 }
+

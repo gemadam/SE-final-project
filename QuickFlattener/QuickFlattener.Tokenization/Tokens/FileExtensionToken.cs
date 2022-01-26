@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 
 namespace QuickFlattener.Tokenization
 {
+    /// <summary>
+    /// Token represents file extension without a dot. F.e:
+    /// <code>E:\Movies\Komedie\Piraci z Karaibów Na krańcu świata.mp4</code>
+    /// Will result in:
+    /// <code>.mp4</code>
+    /// </summary>
     internal class FileExtensionToken : IToken
     {
         public string Value()

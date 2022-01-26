@@ -18,6 +18,12 @@ namespace QuickFlattener.Flattening
             _tokenizer = new Tokenizer();
         }
 
+        /// <summary>
+        /// Method maps files on the specific output.
+        /// </summary>
+        /// <param name="files">Files to be mapped.</param>
+        /// <param name="sOutputPattern">Untokenized output pattern.</param>
+        /// <returns>Files mapping.</returns>
         public IDictionary<string, List<FileInfo>> MapFiles(ICollection<FileInfo> files, string sOutputPattern)
         {
             var outVal = new Dictionary<string, List<FileInfo>>();
@@ -26,9 +32,9 @@ namespace QuickFlattener.Flattening
             {
                 var tokenizedPath = _tokenizer.Tokenize(sOutputPattern, file);
 
-                if (outVal.ContainsKey(tokenizedPath))
+                if (outVal.ContainsKey(tokenizedPath))  // Conflict
                     outVal[tokenizedPath].Add(file);
-                else
+                else                                    // First time here
                     outVal.Add(tokenizedPath, new List<FileInfo>() { file });
             }
 

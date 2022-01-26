@@ -41,9 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithms\JustLogFile.cs" />
     <Compile Include="FileMapper.cs" />
     <Compile Include="MappedFilesCollection.cs" />
-    <Compile Include="FlatteningAlgorithm.cs" />
+    <Compile Include="Algorithms\QuickFlattenerUltra.cs" />
     <Compile Include="FlatteningAlgorithmContext.cs" />
     <Compile Include="IFlatteningAlgorithm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

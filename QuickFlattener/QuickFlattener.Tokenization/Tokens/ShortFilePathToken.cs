@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace QuickFlattener.Tokenization
 {
+    /// <summary>
+    /// Token concatenates two first letters of each path segment. Uses '_' as separator.
+    /// </summary>
     internal class ShortFilePathToken : IToken
     {
         public string Value()

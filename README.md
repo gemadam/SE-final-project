@@ -143,9 +143,9 @@ In case of conflict program displays the proper message and allows to amend the 
     - Test czy pojedynczy plik mapowany jest na ztokenizowaną ścieżkę.
     - Test czy dwa pliki mapowane na tę samą ścieżkę są poprawnie dodawane do kolekcji.
 - Logowanie informacji
-    - Testy FileLoggera:
-        - Czy logger tworzy plik loga, gdy plik loga nie istnieje.
-        - Czy logger dodaje do pliku loga, gdy plik loga istnieje.
+    - ~~Testy FileLoggera:~~
+        - ~~Czy logger tworzy plik loga, gdy plik loga nie istnieje~~.
+        - ~~Czy logger dodaje do pliku loga, gdy plik loga istnieje~~.
     - Testy CustomLoggera:
         - Czy logger wywołuje fukcję z poprawną wiadomością.
 - Trudne do pokrycia Unit Testami, możliwe że lepiej będzie to wrzucić do innej katrgorii testów:

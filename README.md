@@ -113,6 +113,61 @@ In case of conflict program displays the proper message and allows to amend the 
 ```
 
 ![Use case diagram](Documentation/UseCaseDiagram.jpg "Use case diagram")
+
+
+
+## Test plan
+
+### Acceptance testing 
+- User privileges should be checked at runtime and program should not stop its execution when user lacks the read or write privilege on some file or nested directory
+- The user must have permissions to the directory and its files in order to perform the flattening process;
+- The files are copied to the new location and are removed from the old location along with any nested folders,
+- The program will work for every user of the operating system.
+- User input should be tokenized.
+
+### Unit Testing 
+- Tokenizacja
+    - Test czy tokeny są podmieniane na odpowiednie wartości.
+    - Test czy znaki, które nie wchodzą w skład tokenu przepisywane są bez zmian.
+- Struktura danych
+    - Test czy dane zapisywane do struktury można odczytać w niezmienionej formie (write-read).
+    - Test funkcji do rozwiązywania konflitów:
+        - Test pomijania pliku A - plik B powinien pozostać bez zmian, A zostaje usunięty.
+        - Test pomijania pliku B - plik A powinien pozostać bez zmian, B zostaje usunięty.
+        - Test zmiany nazwy pliku A - oba pliki zostały zapisane, A został zmodyfikowany
+        - Test zmiany nazwy pliku B - oba pliki zostały zapisane, B został zmodyfikowany
+    - Test wykrywania konfliktów:
+        - Test funkcji zliczającej ilość konfliktów.
+        - Test funkcji zliczającej ilość konfliktowych plików.
+- File Mapper
+    - Test czy pojedynczy plik mapowany jest na ztokenizowaną ścieżkę.
+    - Test czy dwa pliki mapowane na tę samą ścieżkę są poprawnie dodawane do kolekcji.
+- Logowanie informacji
+    - Testy FileLoggera:
+        - Czy logger tworzy plik loga, gdy plik loga nie istnieje.
+        - Czy logger dodaje do pliku loga, gdy plik loga istnieje.
+    - Testy CustomLoggera:
+        - Czy logger wywołuje fukcję z poprawną wiadomością.
+- Trudne do pokrycia Unit Testami, możliwe że lepiej będzie to wrzucić do innej katrgorii testów:
+    - czy jak nie ma lokalizacji utworoznej czy ją tworzy i o tym informuje w logfile 
+    - czy w przypadku obłsgui wyjątku zapisuje odpowiednią ifnormacje do log file o wybranym rozwiązaniu do pliku; mapowanie 
+    - dla wybranego zbioru plików sprawdzamy czy efekt końcowy spełnia założenia, mapowanie 
+    - weryfikacja czy istnieje partycja docelowa i źródłowa (intferface test ma podobny temat ale tam chodzi o komunikacje między GUI a logiką)
+
+### System Testing 
+- czy jest możliwość rowiązywania konfliktów przez użytkownika, czy jest możliwość wyboru algorytmu spłaszczającego katalog
+- aplikacja ma generować plik log file zawierajacy informacje o skopiowanych plikach oraz błędach, które wystąpiły podczas spłaszczania.
+
+### Interface testing 
+- sprawdzenie obecności algorytmu w podanej lokalizacji, 
+- sprawdzenie poprawności tokenizacji wpisanej przez użytkownika
+- lokalizacja źródłowa lub docelowa, która nie istnieje, aplikacja powinna wyświetlić komunikat o problemie i przerwaniu żądania
+- podawanie plików o tych samych nazwach oraz sprawdzenie rowiązywania konfliktów
+
+### Stress testing - dokładniej Application Stress Testing 
+- bardzo duża ilośc danych do przeniesienia np. cała partycja, czy system je obsłuży np. 700x ~5MB
+- Bardzo duże pliki do przeniesienia np. 20x ~2.5 GB
+
   
 ## Technology stack
 
